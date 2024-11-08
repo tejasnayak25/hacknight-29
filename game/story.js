@@ -19,7 +19,7 @@ export const story = {
         god.x = 0.5;
 
         if(isMobile) {
-            god.y = 0.5;
+            god.y = 0.4;
         }
         god.show();
 
