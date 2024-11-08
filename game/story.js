@@ -23,12 +23,8 @@ export const story = {
         if(isMobile) {
             god.y = 0.4;
         }
-        god.brightness = -0.5;
-        god.opacity = 0;
-        god.show();
-        god.to({brightness: 0.1, opacity: 1, duration: 0.3});
-        god.brightness = 0;
-        // god.fadeIn(0.5);
+
+        god.fadeIn(0.5);
 
         music.play();
 

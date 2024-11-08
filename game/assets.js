@@ -14,7 +14,7 @@ let mary = new Character({
 let god = new Character({
     name: "Mithrandir",
     folder: "characters/Mithrandir",
-    scale: isMobile ? 1 : 1.2
+    scale: isMobile ? 1.1 : 1.2
 });
 
 function getGreeting() {
