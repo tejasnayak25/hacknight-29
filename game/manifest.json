@@ -1,0 +1,28 @@
+{
+    "name": "VN-Sutra",
+    "short_name": "VN-Sutra",
+    "id": "vnsutra",
+    "description": "An introduction to VN-Sutra, visual novel SDK",
+    "start_url": "/",
+    "background_color": "black",
+    "icons": [
+      {
+        "src": "../assets/images/logo.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }
+    ],
+    "display": "standalone",
+    "prefer_related_applications": true,
+    "related_applications": [{
+      "platform": "webapp",
+      "url": "https://vnsutra.onrender.com/game/manifest.json"
+    }],
+    "protocol_handlers": [
+      {
+        "protocol": "web+vnsutra",
+        "url": "/?type=%s"
+      }
+    ]
+  }
+  
