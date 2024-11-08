@@ -55,7 +55,7 @@ async function accounts(config, actionbar, fonts, credit_details) {
     let btny = 15 + version_text.height() + (isMobile ? 0 : gap);
 
     let btns_holder = new Konva.Group({
-        width: isMobile ? containerWidth - 160 : 300,
+        width: isMobile ? containerWidth - 30 : 300,
         height: btns.length * (isMobile ? 70 : (isAndroid ? 50 : 70)),
         x: isMobile ? 0 : (containerWidth - 300)/2,
         y: btny
@@ -144,7 +144,7 @@ async function accounts(config, actionbar, fonts, credit_details) {
     }
 
     let separator = new Konva.Rect({
-        width: (isMobile ? mainContainer.width() : containerWidth) - 2*padding,
+        width: isMobile ? mainContainer.width() : containerWidth  - 2*padding,
         height: 1,
         fill: "gray",
         y: btny + btns_holder.height() + gap
