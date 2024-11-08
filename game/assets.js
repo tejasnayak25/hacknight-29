@@ -88,10 +88,6 @@ let chars = {
     // }
 };
 
-Object.keys(chars).forEach(key => {
-    chars[key].char.loadOutfit("Casual");
-});
-
 let music = new Music("../assets/music/bgm2.mp3");
 
 let correct = new Sfx("../assets/music/ma_soundsbyjw_the_brightest_alerts_and_notifications_1.wav");
@@ -99,6 +95,10 @@ let wrong = new Sfx("../assets/music/ma_soundsbyjw_the_brightest_alerts_and_noti
 
 mary.loadOutfit("Casual");
 god.loadOutfit("Casual");
+
+Object.keys(chars).forEach(key => {
+    chars[key].char.loadOutfit("Casual");
+});
 
 let obj = new IMG({ src: "../assets/images/logo.png", scale: 0.5 });
 
