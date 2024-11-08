@@ -75,7 +75,7 @@ app.route(`/folder`)
 .get(async (req, res) => {
     if(req.headers['sec-fetch-site'] === "same-origin") {
         if(!fs.existsSync(zipDir)) {
-            fs.mkdirSync(zipDir, { recursive: true });
+            fs.mkdirSync(zipDir);
         }
 
         let fpath = decodeURIComponent(req.query.path);
