@@ -163,7 +163,7 @@ async function home(config, fonts, navigate) {
                 let account_details = await accounts(config, actionbar, fonts, credit_details);
                 account_details.render();
             }
-            
+
             openBar(actionbar.actionrect);
         } },
         { name: 'Settings', onclick: () => {
@@ -310,14 +310,27 @@ async function home(config, fonts, navigate) {
     }
 
     let btns = isMobile ? [ 
-        { name: 'New Game', onclick: () => {
-            navigate("game", {});
+        { name: 'New Game', onclick: async () => {
+            let user = window.getUser();
+            if(user) {
+                navigate("game", {});
+            } else {
+                let account_details = await accounts(config, actionbar, fonts, credit_details);
+                account_details.render();
+                openBar(actionbar.actionrect);
+            }
         } },
-        { name: 'Load Game', onclick: () => {
-            loadgame(config, actionbar, "Load Game", fonts, remove_img, (details) => {
-                navigate("game", { scene: details.scene });
-                closeBar(actionbar.actionrect);
-            });
+        { name: 'Load Game', onclick: async () => {
+            let user = window.getUser();
+            if(user) {
+                loadgame(config, actionbar, "Load Game", fonts, remove_img, (details) => {
+                    navigate("game", { scene: details.scene });
+                    closeBar(actionbar.actionrect);
+                });
+            } else {
+                let account_details = await accounts(config, actionbar, fonts, credit_details);
+                account_details.render();
+            }
             openBar(actionbar.actionrect);
         } },
         { name: 'More', onclick: () => {
