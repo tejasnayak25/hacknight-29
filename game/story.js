@@ -12,7 +12,7 @@ function shuffleArray(array) {
 let langList = ["English", "Kannada", "Hindi", "Japanese"];
 
 export const story = {
-    start: async () => {
+    start: async function () {
         game.background.reset();
         god.reset(["scale"]);
         game.background = witch_hut;
