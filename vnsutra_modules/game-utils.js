@@ -89,10 +89,10 @@ function animateDialog(text) {
     });
 }
 
-function next(scene) {
+function next(scene, story) {
     game.ui.game.end.visible(false);
     activeScene = scene.name;
-    scene();
+    scene(story);
 }
 
 function input(message, placeholder = undefined) {

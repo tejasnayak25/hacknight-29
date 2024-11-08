@@ -171,7 +171,7 @@ loadspin = loadwin.querySelector("#loadspin");
                 } else {
                     activeScene = "start"; 
                 }
-                story[activeScene]();
+                story[activeScene](story);
             } }
         };
 

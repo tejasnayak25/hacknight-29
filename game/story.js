@@ -12,7 +12,7 @@ function shuffleArray(array) {
 let langList = ["English", "Kannada", "Hindi", "Japanese"];
 
 export const story = {
-    start: async function () {
+    start: async function (story_obj) {
         game.background.reset();
         god.reset(["scale"]);
         game.background = witch_hut;
@@ -70,9 +70,9 @@ export const story = {
         }
 
         
-        next(this.scene2);
+        next(story_obj.scene2, story_obj);
     },
-    scene2: async () => {
+    scene2: async function (story_obj) {
         music.play();
         game.background.reset();
         god.reset(["scale", "x", "y"]);
@@ -172,7 +172,7 @@ export const story = {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
 
-                next(this.scene2);
+                next(story_obj.scene2, story_obj);
             }
         } else if(char === "Guess the Word") {
             await dialog(teach, "Now, let's play guess the word!");
@@ -229,7 +229,7 @@ export const story = {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
 
-                next(this.scene2);
+                next(story_obj.scene2, story_obj);
             }
         } else if(char === "Guess the Sentence") {
             await dialog(teach, "Now, let's play guess the sentence!");
@@ -286,7 +286,7 @@ export const story = {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
 
-                next(this.scene2);
+                next(story_obj.scene2, story_obj);
             }
         } else if(char === "Trace Letter") {
             await dialog(teach, "Now, let's play trace the letter!");
@@ -318,10 +318,10 @@ export const story = {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
 
-                next(this.scene2);
+                next(story_obj.scene2, obj);
             }
         }
         
-        next(this.scene2)
+        next(story_obj.scene2, obj);
     }
 }
