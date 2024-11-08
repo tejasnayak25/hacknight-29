@@ -34,9 +34,6 @@ const {
   });
 
 let zipDir = path.join(__dirname, "..", "zipfiles");
-if(!fs.existsSync(zipDir)) {
-    fs.mkdirSync(zipDir, { recursive: true });
-}
 
 function zipFile(source_dir, dest) {
     return new Promise((resolve, reject) => {
@@ -77,6 +74,10 @@ app.route("/service-worker.js")
 app.route(`/folder`)
 .get(async (req, res) => {
     if(req.headers['sec-fetch-site'] === "same-origin") {
+        if(!fs.existsSync(zipDir)) {
+            fs.mkdirSync(zipDir, { recursive: true });
+        }
+
         let fpath = decodeURIComponent(req.query.path);
         let folder = path.join(__dirname, "..", "assets", "game-assets", fpath);
 
