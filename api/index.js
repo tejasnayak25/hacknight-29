@@ -33,7 +33,7 @@ const {
     systemInstruction: "Provide an array of 10 random words in random order for learning the language with 4 options each. give direct response. progress determines the amount of progress they have made in learning the language which is determined by the number of correct answers. response format {words: [{native, target, options}], progress: { '>7', '>=5', '<5' }}",
   });
 
-let zipDir = path.join(__dirname, "zipfiles");
+let zipDir = path.join(__dirname, "..", "zipfiles");
 if(!fs.existsSync(zipDir)) {
     fs.mkdirSync(zipDir, { recursive: true });
 }
@@ -66,19 +66,19 @@ app.use(express.json());
 
 app.route("/")
 .get((req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
 app.route("/service-worker.js")
 .get((req, res) => {
-    res.sendFile(path.join(__dirname, "service-worker.js"));
+    res.sendFile(path.join(__dirname, "..", "service-worker.js"));
 });
 
 app.route(`/folder`)
 .get(async (req, res) => {
     if(req.headers['sec-fetch-site'] === "same-origin") {
         let fpath = decodeURIComponent(req.query.path);
-        let folder = path.join(__dirname, "assets", "game-assets", fpath);
+        let folder = path.join(__dirname, "..", "assets", "game-assets", fpath);
 
         if(fs.existsSync(folder)) {
             let data = fs.statSync(folder);
