@@ -12,7 +12,7 @@ function shuffleArray(array) {
 let langList = ["English", "Kannada", "Hindi", "Japanese"];
 
 export const story = {
-    start: async function () {
+    start: async () => {
         game.background.reset();
         god.reset(["scale"]);
         game.background = witch_hut;
@@ -72,7 +72,7 @@ export const story = {
         
         next(this.scene2);
     },
-    scene2: async function () {
+    scene2: async () => {
         music.play();
         game.background.reset();
         god.reset(["scale", "x", "y"]);
@@ -321,8 +321,6 @@ export const story = {
                 next(this.scene2);
             }
         }
-        
-        // await game.background.to({ scale: 4, duration: 1000 });
         
         next(this.scene2)
     }
