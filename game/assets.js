@@ -17,7 +17,7 @@ let god = new Character({
     scale: isMobile ? 1 : 1.2
 });
 
-let music = new Music("../assets/music/bgm2.mpeg");
+let music = new Music("../assets/music/bgm2.mp3");
 
 let correct = new Sfx("../assets/music/ma_soundsbyjw_the_brightest_alerts_and_notifications_1.wav");
 let wrong = new Sfx("../assets/music/ma_soundsbyjw_the_brightest_alerts_and_notifications_2.wav");

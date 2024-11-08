@@ -61,7 +61,7 @@ function zipFile(source_dir, dest) {
     });
 }
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "..")));
 app.use(express.json());
 
 app.route("/")
