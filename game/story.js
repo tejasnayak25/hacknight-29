@@ -45,32 +45,37 @@ export const story = {
             await dialog(god, `Hello, ${userd.displayName}. What would you like to learn today?`);
         }
 
-        let lang = await choice("Choose language", langList.filter(lang => lang != user.lang));
+        let lang = await choice("Choose language", [...langList.filter(lang => lang != user.lang), "Nothing"]);
 
-        await dialog(god, `Ohh, so you would like to learn ${lang}`);
+        if(lang === "Nothing") {
+            await dialog(god, "Oh! See you another day!");
+            end();
+        } else {
+            await dialog(god, `Ohh, so you would like to learn ${lang}`);
 
-        let langdata = await storage.getItem(`lang-${lang}`);
-
-        if(!langdata) {
-            let array = shuffleArray(Object.keys(chars));
-            let teach = {name: array[0], intro: false};
-            await dialog(god, `Picking a teacher for you...`);
-            await storage.setItem(`lang-${lang}`, {
-                lang,
-                teach
-            });
-            await storage.setItem("active-lang", {
-                lang,
-                teach
-            });
-            await storage.setItem("user", {lang: user.lang, targets: [...user.targets, lang]});
+            let langdata = await storage.getItem(`lang-${lang}`);
+    
+            if(!langdata) {
+                let array = shuffleArray(Object.keys(chars));
+                let teach = {name: array[0], intro: false};
+                await dialog(god, `Picking a teacher for you...`);
+                await storage.setItem(`lang-${lang}`, {
+                    lang,
+                    teach
+                });
+                await storage.setItem("active-lang", {
+                    lang,
+                    teach
+                });
+                await storage.setItem("user", {lang: user.lang, targets: [...user.targets, lang]});
+            }
+            else {
+                await storage.setItem("active-lang", langdata);
+            }
+    
+            
+            next(story_obj.scene2, story_obj);
         }
-        else {
-            await storage.setItem("active-lang", langdata);
-        }
-
-        
-        next(story_obj.scene2, story_obj);
     },
     scene2: async function (story_obj) {
         music.play();
@@ -115,9 +120,55 @@ export const story = {
 
         await dialog(teach, "What would you like to focus on today?");
 
-        let char = await choice("Decide", ["Info Time", "Guess the Letter", "Trace Letter", "Guess the Word", "Guess the Sentence"]);
+        let char = await choice("Decide", ["Info Time", "Guess the Letter", "Trace Letter", "Guess the Word", "Guess the Sentence", "Nothing"]);
 
-        if(char === "Guess the Letter") {
+        if(char === "Info Time") {
+            let items = [
+                await storage.getItem(`lang-${lang.lang}-guessletter`),
+                await storage.getItem(`lang-${lang.lang}-guessword`),
+                await storage.getItem(`lang-${lang.lang}-guesssentence`)
+            ];
+            
+            // Filter out null or undefined items
+            let validItems = items.filter(item => item != null);
+            
+            let accuracy = validItems.map(item => item.accuracy || 0).reduce((a, b) => a + b, 0);
+            accuracy = validItems.length > 0 ? accuracy / validItems.length : 0; // Avoid division by zero
+            
+            let games_played = validItems.map(item => item.trials || 0).reduce((a, b) => a + b, 0);
+
+
+            let res = await fetch("/ai/info-time", {
+                method: "POST",
+                body: JSON.stringify({
+                    target: lang.lang,
+                    native: user.lang,
+                    accuracy,
+                    games_played
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            res = await res.json();
+
+            if(res['status'] === 200) {
+                let data = JSON.parse(res['content']);
+
+                for(let i=0;i<data['data'].length;i++) {
+                    let cur = data['data'][i];
+                    await dialog(teach, cur[native]);
+                }
+
+                await dialog(teach, `And now you know something more about ${lang.lang}`);
+            } else {
+                await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
+                await dialog(teach, "I'll be back soon");
+
+                next(story_obj.scene2, story_obj);
+            }
+        } else if(char === "Guess the Letter") {
             await dialog(teach, "Now, let's play guess the letter!");
 
             let gdata = await storage.getItem(`lang-${lang.lang}-guessletter`);
@@ -320,6 +371,8 @@ export const story = {
 
                 next(story_obj.scene2, obj);
             }
+        } else if(char === "Nothing") {
+            next(story_obj.start);
         }
         
         next(story_obj.scene2, obj);

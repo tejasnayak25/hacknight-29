@@ -47,6 +47,12 @@ const {
     systemInstruction: "detect the character in the image with respect to the target language. give direct answer. format {letter: string}",
   });
 
+  const info_model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+    generationConfig: ralpha_generationConfig,
+    systemInstruction: "provide an array of 10 elements to teach the alphabets, words, and phrases related to the target language in the native language based on the user's experience. give direct answer. format {data: [sentence, sentence, ...]}",
+  });
+
 let zipDir = path.join(__dirname, "..", "zipfiles");
 
 var storage = multer.diskStorage({
@@ -191,6 +197,23 @@ app.route("/ai/random-sentence")
 
     try {
         let response = await sentence_model.generateContent(JSON.stringify(data));
+        res.send({
+            status: 200,
+            content: response.response.text()
+        })
+    } catch(e) {
+        res.send({
+            status:500
+        });
+    }
+});
+
+app.route("/ai/info-time")
+.post(async (req, res) => {
+    let data = req.body;
+
+    try {
+        let response = await info_model.generateContent(JSON.stringify(data));
         res.send({
             status: 200,
             content: response.response.text()
