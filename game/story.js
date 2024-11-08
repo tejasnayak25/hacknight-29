@@ -91,7 +91,7 @@ export const story = {
         let teach_base = chars[lang.teach.name];
         let teach = teach_base.char;
         teach.outfit = teach.outfits['Casual'];
-        teach.mood = "Casual";
+        teach.mood = "Casual1";
         teach.x = 0.2;
 
         game.background = teach_base.map;
