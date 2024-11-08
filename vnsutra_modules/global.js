@@ -12,6 +12,10 @@ document.oncontextmenu = (e) => {
     e.preventDefault();
 }
 
+window.getUser = () => {
+    return null;
+}
+
 document.onkeydown = (e) => {
     if(e.ctrlKey && e.shiftKey) {
         switch(e.key) {
@@ -20,3 +24,38 @@ document.onkeydown = (e) => {
         }
     }
 }
+
+let alertwintrace = document.getElementById("alert-win");
+let trace_holder = alertwintrace.querySelector("#alert-trace");
+let trace_canvas = trace_holder.querySelector("canvas");
+let trace_context = trace_canvas.getContext("2d");
+
+let isDrawing = false;
+
+trace_canvas.addEventListener("mousedown", () => {
+    isDrawing = true;
+});
+
+trace_canvas.addEventListener("mouseup", () => {
+    isDrawing = false;
+    trace_context.beginPath(); // reset the path for clean lines
+});
+
+trace_canvas.addEventListener("mousemove", (event) => {
+    if (!isDrawing) return;
+
+    // Get mouse position within the canvas
+    const rect = trace_canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    // Draw
+    trace_context.lineWidth = 10;
+    trace_context.lineCap = "round";
+    trace_context.strokeStyle = "black";
+    
+    trace_context.lineTo(x, y);
+    trace_context.stroke();
+    trace_context.beginPath();
+    trace_context.moveTo(x, y);
+});

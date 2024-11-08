@@ -17,6 +17,81 @@ let god = new Character({
     scale: isMobile ? 1 : 1.2
 });
 
+function getGreeting() {
+    const currentHour = new Date().getHours();
+
+    if (currentHour >= 5 && currentHour < 12) {
+        return "Good Morning";
+    } else if (currentHour >= 12 && currentHour < 17) {
+        return "Good Afternoon";
+    } else if (currentHour >= 17 && currentHour < 21) {
+        return "Good Evening";
+    } else {
+        return "Hello";
+    }
+}
+
+let chars = {
+    // "Kenny": {
+    //     char: new Character({
+    //         name: "Kenny",
+    //         folder: "characters/Kenny",
+    //         scale: isMobile ? 1 : 1.2
+    //     })
+    // },
+    "Prof. John Doe": {
+        char: new Character({
+            name: "JohnDoe",
+            folder: "characters/JohnDoe",
+            scale: isMobile ? 1 : 1.2
+        }),
+        intro: (lang) => {
+            return `${getGreeting()}, student. I am Prof. John Doe. I will be assisting you in learning ${lang}`;
+        },
+        map: new Background("backgrounds/officee.jpeg")
+    },
+    // "Walter": {
+    //     char: new Character({
+    //         name: "Walter",
+    //         folder: "characters/Walter",
+    //         scale: isMobile ? 1 : 1.2
+    //     })
+    // },
+    "Snape": {
+        char: new Character({
+            name: "Snape",
+            folder: "characters/Snape",
+            scale: isMobile ? 1 : 1.2
+        }),
+        intro: (lang) => {
+            return `${getGreeting()}, fella. I am old man Snape. I will be teaching you ${lang}`;
+        },
+        map: new Background("backgrounds/jungle1.jpeg")
+    },
+    "Maria": {
+        char: new Character({
+            name: "Maria",
+            folder: "characters/Maria",
+            scale: isMobile ? 1 : 1.2
+        }),
+        intro: (lang) => {
+            return `${getGreeting()}, my dear. I am Maria. I will be helping you learn ${lang}`;
+        },
+        map: new Background("backgrounds/fantasy.jpeg")
+    },
+    // "Aragon": {
+    //     char: new Character({
+    //         name: "Aragon",
+    //         folder: "characters/Aragon",
+    //         scale: isMobile ? 1 : 1.2
+    //     })
+    // }
+};
+
+Object.keys(chars).forEach(key => {
+    chars[key].char.loadOutfit("Casual");
+});
+
 let music = new Music("../assets/music/bgm2.mp3");
 
 let correct = new Sfx("../assets/music/ma_soundsbyjw_the_brightest_alerts_and_notifications_1.wav");
@@ -31,4 +106,4 @@ let sounds = {
     wrong, correct
 };
 
-export { futon_room, apartment_ext, mary, music, obj, god, portal, witch_hut, sounds };
+export { futon_room, apartment_ext, mary, music, obj, god, portal, witch_hut, sounds, chars };

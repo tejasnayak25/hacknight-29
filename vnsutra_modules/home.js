@@ -102,7 +102,7 @@ async function home(config, fonts, navigate) {
 
     let credit_details = credits(config, actionbar, fonts);
 
-    let settings_details = settings(config, actionbar, fonts, credit_details);
+    let settings_details = settings(config, actionbar, fonts, credit_details);    
     
     let optsGroup = new Konva.Group({
         width: sidebar.width(),
@@ -132,26 +132,47 @@ async function home(config, fonts, navigate) {
     alertWin.color = config.colors.primary;
 
     let opts = [
-        { name: 'New Game', onclick: (btnHolder) => {
-            if(isMobile) {
-                closeBar(siderect);
-            }
-            navigate("game", {});
-            btnHolder.fire("mouseout");
-        } },
-        { name: 'Load Game', onclick: (btnHolder) => {
-            loadgame(config, actionbar, "Load Game", fonts, remove_img, (details) => {
+        { name: 'New Game', onclick: async (btnHolder) => {
+            let user = window.getUser();
+
+            if(user) {
                 if(isMobile) {
                     closeBar(siderect);
                 }
-                closeBar(actionbar.actionrect);
-                navigate("game", { scene: details.scene });
+                navigate("game", {});
                 btnHolder.fire("mouseout");
-            });
+            } else {
+                let account_details = await accounts(config, actionbar, fonts, credit_details);
+                account_details.render();
+                openBar(actionbar.actionrect);
+            }
+        } },
+        { name: 'Load Game', onclick: async (btnHolder) => {
+            let user = window.getUser();
+
+            if(user) {
+                loadgame(config, actionbar, "Load Game", fonts, remove_img, (details) => {
+                    if(isMobile) {
+                        closeBar(siderect);
+                    }
+                    closeBar(actionbar.actionrect);
+                    navigate("game", { scene: details.scene });
+                    btnHolder.fire("mouseout");
+                });
+            } else {
+                let account_details = await accounts(config, actionbar, fonts, credit_details);
+                account_details.render();
+            }
+            
             openBar(actionbar.actionrect);
         } },
         { name: 'Settings', onclick: () => {
             settings_details.render();
+            openBar(actionbar.actionrect);
+        } },
+        { name: 'Account', onclick: async () => {
+            let account_details = await accounts(config, actionbar, fonts, credit_details);
+            account_details.render();
             openBar(actionbar.actionrect);
         } },
         { name: 'Credits', onclick: () => {

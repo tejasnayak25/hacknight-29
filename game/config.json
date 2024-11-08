@@ -1,7 +1,7 @@
 {
-    "project-name": "vnsutra",
+    "project-name": "manjari",
     "version": "1.0.0.0",
-    "title": "Manjari",
+    "title": "manjari",
     "subtitle": "Series of Learning-Lingo",
     "icon": "./assets/images/logo.png",
     "poster": "./assets/images/poster.png",
@@ -20,7 +20,7 @@
         "./assets/screenshots/screenshot4.png"
     ],
     "fonts": {
-        "title": { "name": "Kanit", "url": "./assets/fonts/Kanit-Regular.ttf" },
+        "title": { "name": "SourGummy", "url": "./assets/fonts/SourGummy.ttf" },
         "other": { "name": "OpenSans", "url": "./assets/fonts/OpenSans.ttf" }
     },
     "gui": {

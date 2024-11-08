@@ -1,5 +1,5 @@
 class AlertWindow {
-    constructor(message, btns, config, type="message", { input, opts } = { input: null, opts: null}) {
+    constructor(message, btns, config, type="message", { input, opts, trace } = { input: null, opts: null, trace: null}) {
         this.win = document.getElementById("alert-win");
         this.card = this.win.querySelector("#alert-card");
         this._message = this.win.querySelector("#alert-message");
@@ -12,7 +12,7 @@ class AlertWindow {
         this.textColor = config.colors.text;
 
         this.data = {
-            message, btns, type, input, opts
+            message, btns, type, input, opts, trace
         }
     }
 
@@ -79,6 +79,42 @@ class AlertWindow {
         }
 
         this.win.classList.replace("hidden", "flex");
+
+        if(this.data.type === "trace") {
+            trace_holder.classList.remove("hidden");
+
+            trace_canvas.width = trace_canvas.offsetWidth;
+            trace_canvas.height = trace_canvas.offsetHeight;
+
+            console.log(trace_canvas.width, trace_canvas.height);
+            // Clear the canvas
+            trace_context.clearRect(0, 0, trace_canvas.width, trace_canvas.height)
+
+            const fontSize = 250;
+
+            // Calculate font size based on canvas dimensions (optional, adjust for different canvas sizes)
+            const maxFontSize = Math.min(trace_canvas.width, trace_canvas.height) * 1; // 80% of canvas size
+            const adjustedFontSize = Math.min(fontSize, maxFontSize);
+            
+            // Set font
+            trace_context.font = `${adjustedFontSize}px sans-serif`;
+            
+            // Set fill style to gray
+            trace_context.fillStyle = "gray";
+            
+            // Set text alignment and baseline
+            trace_context.textAlign = "center";
+            trace_context.textBaseline = "middle";
+            
+            // Fill the canvas with gray background (optional, adjust based on use case)
+            // trace_context.fillRect(0, 0, trace_canvas.width, trace_canvas.height);
+            
+            // Draw the text
+            trace_context.fillText(this.data.trace, trace_canvas.width / 2, trace_canvas.height / 2);
+
+        } else {
+            trace_holder.classList.add("hidden");
+        }
     }
 
     close() {

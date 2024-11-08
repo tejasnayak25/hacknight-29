@@ -3,15 +3,18 @@ let fs = require("fs");
 let express = require("express");
 let app = express();
 let archiver = require("archiver");
+const multer = require('multer');
 
 const {
     GoogleGenerativeAI,
     HarmCategory,
     HarmBlockThreshold,
   } = require("@google/generative-ai");
+  const { GoogleAIFileManager } = require("@google/generative-ai/server");
   
   const apiKey = process.env.GOOGLE_AI_API;
   const genAI = new GoogleGenerativeAI(apiKey);
+  const fileManager = new GoogleAIFileManager(apiKey);
 
   const ralpha_generationConfig = {
     temperature: 1,
@@ -30,13 +33,44 @@ const {
   const random_word_model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
     generationConfig: ralpha_generationConfig,
-    systemInstruction: "Provide an array of 10 random words in random order for learning the language with 4 options each. give direct response. progress determines the amount of progress they have made in learning the language which is determined by the number of correct answers. response format {words: [{native, target, options}], progress: { '>7', '>=5', '<5' }}",
+    systemInstruction: "Provide an array of 10 random words in random order for learning the language with 4 options each. give direct response. response format {words: [{native, target, options}]}",
+  });
+
+  const sentence_model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+    generationConfig: ralpha_generationConfig,
+    systemInstruction: "Provide an array of 10 random sentences in random order for learning the language with 4 options each. give direct response. response format {sentences: [{native, target, options}]}",
+  });
+
+  const trace_model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+    systemInstruction: "detect the character in the image with respect to the target language. give direct answer. format {letter: string}",
   });
 
 let zipDir = path.join(__dirname, "..", "zipfiles");
 
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+});
+var upload = multer({ storage: storage });
+
 if(process.env['PRODUCTION']) {
     zipDir = path.join("/tmp", "zipfiles");
+    
+    storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+          cb(null, '/tmp/uploads')
+        },
+        filename: function (req, file, cb) {
+          cb(null, file.originalname)
+        }
+    });
+    upload = multer({ storage: storage });
 }
 
 function zipFile(source_dir, dest) {
@@ -64,6 +98,7 @@ function zipFile(source_dir, dest) {
 
 app.use(express.static(path.join(__dirname, "..")));
 app.use(express.json());
+// app.use(express.urlencoded());
 
 app.route("/")
 .get((req, res) => {
@@ -139,6 +174,57 @@ app.route("/ai/random-word")
 
     try {
         let response = await random_word_model.generateContent(JSON.stringify(data));
+        res.send({
+            status: 200,
+            content: response.response.text()
+        })
+    } catch(e) {
+        res.send({
+            status:500
+        });
+    }
+});
+
+app.route("/ai/random-sentence")
+.post(async (req, res) => {
+    let data = req.body;
+
+    try {
+        let response = await sentence_model.generateContent(JSON.stringify(data));
+        res.send({
+            status: 200,
+            content: response.response.text()
+        })
+    } catch(e) {
+        res.send({
+            status:500
+        });
+    }
+});
+
+async function uploadToGemini(path, mimeType) {
+    const uploadResult = await fileManager.uploadFile(path, {
+      mimeType,
+      displayName: path,
+    });
+    const file = uploadResult.file;
+    return file;
+}
+
+app.post("/ai/trace", upload.single('file'), async (req, res) => {
+    let data = req.body.text;
+    try {
+        let file = req.file;
+        let uploadResponse = await uploadToGemini(file.path, file.mimetype);
+        let response = await trace_model.generateContent([
+            {
+              fileData: {
+                mimeType: uploadResponse.mimeType,
+                fileUri: uploadResponse.uri,
+              },
+            },
+            { text: JSON.stringify(data) },
+          ]);
         res.send({
             status: 200,
             content: response.response.text()

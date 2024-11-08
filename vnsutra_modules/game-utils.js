@@ -201,6 +201,29 @@ function choice(message, opts, large = false, answer = null, sound = null) {
     });
 }
 
+function trace(message, char) {
+    return new Promise((resolve, reject) => {
+        let proceedBtn = document.createElement("button");
+        proceedBtn.innerText = "Continue";
+        proceedBtn.className = "btn hover:bg-inherit border-0";
+        proceedBtn.style.backgroundColor = configuration.colors.primary;
+        proceedBtn.style.color = configuration.colors['primary-text'];
+    
+        let alertwin = new AlertWindow(message, [proceedBtn], configuration, "trace", { trace: char });
+        alertwin.btns.classList.replace("justify-between", "justify-end");
+    
+        proceedBtn.onclick = () => {
+            // let value = choicesElem.querySelector(`input[name="choices-radio"]:checked`).value;
+            alertwin.close();
+            alertwin.btns.classList.replace("justify-end", "justify-between");
+
+            resolve(null);
+        }
+
+        alertwin.show();
+    });
+}
+
 const storage = {
     setItem: (key, value) => addData(story_db, { key, value }),
     getItem: async (key) => {
@@ -231,4 +254,4 @@ function wait(time) {
     });
 }
 
-export { dialog, next, input, choice, storage, end, wait };
+export { dialog, next, input, choice, storage, end, wait, trace };

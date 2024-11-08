@@ -1,4 +1,4 @@
-let dataStore = undefined, story_db = undefined;
+let dataStore = undefined, story_db = undefined, story_store = null;
 
 loadJSON("../game/config.json").then(async (CONFIG) => {
     const db = await openDatabase(CONFIG['project-name']);
@@ -21,4 +21,20 @@ loadJSON("../game/config.json").then(async (CONFIG) => {
     
     
     dataStore = myLocalStorage;
+
+    const storage = {
+        setItem: (key, value) => addData(story_db, { key, value }),
+        getItem: async (key) => {
+            const data = await getData(story_db, key);
+            return data ? data.value : null;
+        },
+        removeItem: (key) => deleteData(story_db, key),
+        clear: () => clearData(story_db),
+        key: (index) => getKeyAt(story_db, index),
+        get length() {
+            return getDataLength(story_db);
+        },
+    }
+
+    story_store = storage;
 });

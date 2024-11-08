@@ -2342,6 +2342,11 @@ html {
   min-width: 2.2em;
 }
 
+.\!link {
+  cursor: pointer !important;
+  text-decoration-line: underline !important;
+}
+
 .link {
   cursor: pointer;
   text-decoration-line: underline;
@@ -2349,6 +2354,15 @@ html {
 
 .link-hover {
   text-decoration-line: none;
+}
+
+.\!mask {
+  -webkit-mask-size: contain !important;
+          mask-size: contain !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  -webkit-mask-position: center !important;
+          mask-position: center !important;
 }
 
 .mask {
@@ -2777,10 +2791,25 @@ html {
   height: auto;
 }
 
+.\!stack {
+  display: inline-grid !important;
+  place-items: center !important;
+  align-items: flex-end !important;
+}
+
 .stack {
   display: inline-grid;
   place-items: center;
   align-items: flex-end;
+}
+
+.\!stack > * {
+  grid-column-start: 1 !important;
+  grid-row-start: 1 !important;
+  transform: translateY(10%) scale(0.9) !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  opacity: 0.6 !important;
 }
 
 .stack > * {
@@ -2792,10 +2821,22 @@ html {
   opacity: 0.6;
 }
 
+.\!stack > *:nth-child(2) {
+  transform: translateY(5%) scale(0.95) !important;
+  z-index: 2 !important;
+  opacity: 0.8 !important;
+}
+
 .stack > *:nth-child(2) {
   transform: translateY(5%) scale(0.95);
   z-index: 2;
   opacity: 0.8;
+}
+
+.\!stack > *:nth-child(1) {
+  transform: translateY(0) scale(1) !important;
+  z-index: 3 !important;
+  opacity: 1 !important;
 }
 
 .stack > *:nth-child(1) {
@@ -4783,9 +4824,19 @@ details.collapse summary::-webkit-details-marker {
   color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
 }
 
+.\!link:focus {
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
 .link:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.\!link:focus-visible {
+  outline: 2px solid currentColor !important;
+  outline-offset: 2px !important;
 }
 
 .link:focus-visible {
@@ -8534,6 +8585,10 @@ html:has(.drawer-open.drawer-open) {
   isolation: isolate;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -8590,8 +8645,16 @@ html:has(.drawer-open.drawer-open) {
   aspect-ratio: 16 / 9;
 }
 
+.h-1 {
+  height: 0.25rem;
+}
+
 .h-10 {
   height: 2.5rem;
+}
+
+.h-2 {
+  height: 0.5rem;
 }
 
 .h-24 {
@@ -8639,6 +8702,10 @@ html:has(.drawer-open.drawer-open) {
 }
 
 .flex-grow {
+  flex-grow: 1;
+}
+
+.grow {
   flex-grow: 1;
 }
 
@@ -8794,6 +8861,11 @@ html:has(.drawer-open.drawer-open) {
   background-color: rgb(2 6 23 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-70 {
   --tw-bg-opacity: 0.7;
 }
@@ -8866,12 +8938,21 @@ html:has(.drawer-open.drawer-open) {
   text-transform: uppercase;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 .capitalize {
   text-transform: capitalize;
 }
 
 .italic {
   font-style: italic;
+}
+
+.ordinal {
+  --tw-ordinal: ordinal;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
 .text-slate-100 {
@@ -8976,6 +9057,14 @@ html:has(.drawer-open.drawer-open) {
 
 .dark .bg-default {
   background-color: oklch(0.25 0.02 252.42);
+}
+
+.\[options\:IParseOptions\] {
+  options: IParseOptions;
+}
+
+.\[root\:Root\] {
+  root: Root;
 }
 
 @media (hover:hover) {
