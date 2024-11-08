@@ -57,7 +57,7 @@ async function accounts(config, actionbar, fonts, credit_details) {
     let btns_holder = new Konva.Group({
         width: isMobile ? containerWidth - 30 : 300,
         height: btns.length * (isMobile ? 70 : (isAndroid ? 50 : 70)),
-        x: isMobile ? -30 : (containerWidth - 300)/2,
+        x: isMobile ? -15 : (containerWidth - 300)/2,
         y: btny
     });
 
