@@ -33,7 +33,11 @@ const {
     systemInstruction: "Provide an array of 10 random words in random order for learning the language with 4 options each. give direct response. progress determines the amount of progress they have made in learning the language which is determined by the number of correct answers. response format {words: [{native, target, options}], progress: { '>7', '>=5', '<5' }}",
   });
 
-let zipDir = process.env.PRODUCTION ? path.join("/tmp", "zipfiles") : path.join(__dirname, "..", "zipfiles");
+let zipDir = path.join(__dirname, "..", "zipfiles");
+
+if(process.env['PRODUCTION']) {
+    zipDir = path.join("/tmp", "zipfiles");
+}
 
 function zipFile(source_dir, dest) {
     return new Promise((resolve, reject) => {
