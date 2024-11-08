@@ -17,6 +17,10 @@ export const story = {
         god.outfit = god.outfits['Casual'];
         god.mood = "Casual1";
         god.x = 0.5;
+
+        if(isMobile) {
+            god.y = 0.75;
+        }
         god.show();
 
         music.play();
@@ -63,7 +67,7 @@ export const story = {
     scene2: async function () {
         music.play();
         game.background.reset();
-        god.reset(["scale", "x"]);
+        god.reset(["scale", "x", "y"]);
         // god.hide();
         game.background = witch_hut;
 
