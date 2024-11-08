@@ -31,7 +31,7 @@ export const story = {
             await dialog(god, "Hello human, what is your name?");
             let name = await input("Your name:", "John Doe");
             await dialog(god, "Choose your native language");
-            let nativelang = await choice("Native Language:", ["Kannada", "Hindi"]);
+            let nativelang = await choice("Native Language:", ["English", "Kannada", "Hindi"]);
 
             storage.setItem("user", {name, lang: nativelang});
 
@@ -40,7 +40,7 @@ export const story = {
             await dialog(god, `Hello, ${user.name}. What would you like to learn today?`);
         }
 
-        let lang = await choice("Choose language", ["English", "Kannada", "Hindi"]);
+        let lang = await choice("Choose language", ["English", "Kannada", "Hindi", "Japanese"]);
 
         await dialog(god, `Ohh, so you would like to learn ${lang}`);
 
