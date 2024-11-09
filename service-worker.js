@@ -1,4 +1,4 @@
-const CACHE_NAME = 'manjari-cache-v1'; // Update cache name to reflect version change
+const CACHE_NAME = 'manjari-cache-v2'; // Update cache name to reflect version change
 const urlsToCache = [
     '/', 
     '/index.html', 

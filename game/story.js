@@ -9,6 +9,10 @@ function shuffleArray(array) {
     return array;
 }
 
+function randomPick(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
 let langList = ["English", "Kannada", "Hindi", "Japanese", "Chinese", "Korean", "Spanish", "German", "Italian"].sort();
 
 export const story = {
@@ -56,8 +60,8 @@ export const story = {
             let langdata = await storage.getItem(`lang-${lang}`);
     
             if(!langdata) {
-                let array = shuffleArray(Object.keys(chars));
-                let teach = {name: array[0], intro: false};
+                let item = randomPick(Object.keys(chars));
+                let teach = {name: item, intro: false};
                 await dialog(god, `Picking a teacher for you...`);
                 await storage.setItem(`lang-${lang}`, {
                     lang,

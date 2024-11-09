@@ -27,7 +27,7 @@ const {
   const random_alpha_model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
     generationConfig: ralpha_generationConfig,
-    systemInstruction: "Provide an array of 10 random alphabets in random order for learning the language with 4 options each. give direct response. response format {letters: [{native, target, options}]}",
+    systemInstruction: "Provide an array of 10 random letters in random order for learning the language with 4 options each. give direct response. response format {letters: [{native, target, options}]}",
   });
 
   const random_word_model = genAI.getGenerativeModel({
