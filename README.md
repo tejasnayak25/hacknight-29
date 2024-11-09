@@ -128,9 +128,11 @@ Our app is built using a modern tech stack that ensures high performance, scalab
    - Our AI analyzes your answers, offering instant corrections.
 
 ## Contributors
+
 <a href="https://github.com/tejasnayak25/hacknight-29/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=tejasnayak25/hacknight-29" />
 </a>
+
 
 
 ## Thank You ##
