@@ -158,7 +158,7 @@ export const story = {
 
                 for(let i=0;i<data['data'].length;i++) {
                     let cur = data['data'][i];
-                    await dialog(teach, cur[native]);
+                    await dialog(teach, cur);
                 }
 
                 await dialog(teach, `And now you know something more about ${lang.lang}`);
