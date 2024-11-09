@@ -11,4 +11,4 @@ Manjari is a progressive web app which aims to provide language education to any
 </table>
 
 ## Origin
-This project was taken up during the Hacknight hackathon and was going within 20hrs .
+This project was taken up during the Hacknight hackathon and was running within 20hrs .
