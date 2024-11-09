@@ -23,14 +23,14 @@ function getGreeting() {
 }
 
 let chars = {
-    "Snape": {
+    "Frodo": {
         char: new Character({
-            name: "Snape",
+            name: "Frodo",
             folder: "characters/Snape",
             scale: isMobile ? 1 : 1.2
         }),
         intro: (lang) => {
-            return `${getGreeting()}, fella. I am old man Snape. I will be teaching you ${lang}`;
+            return `${getGreeting()}, fella. I am old man Frodo. I will be teaching you ${lang}`;
         },
         map: new Background("backgrounds/jungle1.jpeg")
     },
@@ -47,7 +47,7 @@ let chars = {
     },
     "Prof. John Doe": {
         char: new Character({
-            name: "JohnDoe",
+            name: "Prof. John Doe",
             folder: "characters/JohnDoe",
             scale: isMobile ? 1 : 1.2
         }),
