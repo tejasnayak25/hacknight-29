@@ -1,9 +1,11 @@
-const CACHE_NAME = 'vnsutra-cache-v2'; // Update cache name to reflect version change
+const CACHE_NAME = 'manjari-cache-v2'; // Update cache name to reflect version change
 const urlsToCache = [
     '/', 
     '/index.html', 
     '/css/output.css',
-    '/assets/music/bgm.mp3'
+    '/assets/music/bgm2.mp3',
+    '/assets/music/ma_soundsbyjw_the_brightest_alerts_and_notifications_1.wav',
+    '/assets/music/ma_soundsbyjw_the_brightest_alerts_and_notifications_2.wav'
 ];
 
 // Install the service worker and cache initial assets
@@ -33,7 +35,7 @@ self.addEventListener('fetch', event => {
                 return fetch(fetchRequest).then(
                     response => {
                         // Check if we received a valid response
-                        if (!response || response.status !== 200 || response.type !== 'basic') {
+                        if (!response || response.status !== 200 || response.type !== 'basic' || event.request.url.includes('/ai/')) {
                             return response;
                         }
 

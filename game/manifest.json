@@ -2,13 +2,28 @@
   "name": "Manjari",
   "short_name": "Manjari",
   "id": "manjari",
-  "description": "A Series of Learning-Lingo",
+  "description": "Series of Learning-Lingo",
   "start_url": "/",
   "background_color": "black",
   "icons": [
     {
-      "src": "../assets/images/logo.png",
+      "src": "../assets/images/144.png",
       "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "../assets/images/256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "../assets/images/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "../assets/images/1024.png",
+      "sizes": "1024x1024",
       "type": "image/png"
     }
   ],

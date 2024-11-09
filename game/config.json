@@ -3,16 +3,16 @@
     "version": "1.0.0.0",
     "title": "manjari",
     "subtitle": "Series of Learning-Lingo",
-    "icon": "./assets/images/logo.png",
+    "icon": "./assets/images/512.png",
     "poster": "./assets/images/poster.png",
     "bgm": "./assets/music/bgm2.mp3",
-    "support-url": "https://github.com/tejasnayak25/vnsutra",
-    "about-url": "https://github.com/tejasnayak25/vnsutra",
+    "support-url": "https://github.com/tejasnayak25/hacknight-29",
+    "about-url": "https://github.com/tejasnayak25/hacknight-29",
     "author": "Tejas Nayak",
     "author-email": "tejasnayak25@outlook.com",
-    "description": "An introduction to VN-Sutra, visual novel SDK",
+    "description": "Series of Learning-Lingo",
     "copyright": "Copyright - 2024, Tejas Nayak",
-    "protocol": "web+vnsutra",
+    "protocol": "web+manjari",
     "screenshots": [
         "./assets/screenshots/screenshot1.png",
         "./assets/screenshots/screenshot2.png",
@@ -85,10 +85,8 @@
         "timestamp-text": "white"
     },
     "credits": {
-        "Poster Design": "Image by vandesart from Pixabay",
-        "Poster-2 Design": "Image by qiaominxu 橋茗旭 from Pixabay",
-        "Background Music": "Oleksii Kaplunskyi from Pixabay",
-        "Background Artist": "Noraneko Games from https://noranekogames.itch.io/",
-        "Character Artist": "Noraneko Games from \n https://noranekogames.itch.io/"
+        "Developer": "Tejas Nayak",
+        "Designer": "Poornananda Nayak",
+        "Assistance": "Swasthik Yesh"
     }
 }
