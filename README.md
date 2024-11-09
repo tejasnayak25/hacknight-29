@@ -24,7 +24,7 @@ Check out how popular the project is!
 
 Click below to download the latest version of the app:
 
-[![Download](https://img.shields.io/badge/Download-latest%20version-blue.svg)](https://manjari-one.vercel.app/install/)
+[![Download](assets/images/qrcode.png)](https://manjari-one.vercel.app/install/)
 
 # Language Learning through Visual Novel
 
