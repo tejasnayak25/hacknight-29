@@ -32,31 +32,6 @@ function getGreeting() {
 }
 
 let chars = {
-    // "Kenny": {
-    //     char: new Character({
-    //         name: "Kenny",
-    //         folder: "characters/Kenny",
-    //         scale: isMobile ? 1 : 1.2
-    //     })
-    // },
-    "Prof. John Doe": {
-        char: new Character({
-            name: "JohnDoe",
-            folder: "characters/JohnDoe",
-            scale: isMobile ? 1 : 1.2
-        }),
-        intro: (lang) => {
-            return `${getGreeting()}, student. I am Prof. John Doe. I will be assisting you in learning ${lang}`;
-        },
-        map: new Background("backgrounds/officee.jpeg")
-    },
-    // "Walter": {
-    //     char: new Character({
-    //         name: "Walter",
-    //         folder: "characters/Walter",
-    //         scale: isMobile ? 1 : 1.2
-    //     })
-    // },
     "Snape": {
         char: new Character({
             name: "Snape",
@@ -79,13 +54,17 @@ let chars = {
         },
         map: new Background("backgrounds/fantasy.jpeg")
     },
-    // "Aragon": {
-    //     char: new Character({
-    //         name: "Aragon",
-    //         folder: "characters/Aragon",
-    //         scale: isMobile ? 1 : 1.2
-    //     })
-    // }
+    "Prof. John Doe": {
+        char: new Character({
+            name: "JohnDoe",
+            folder: "characters/JohnDoe",
+            scale: isMobile ? 1 : 1.2
+        }),
+        intro: (lang) => {
+            return `${getGreeting()}, student. I am Prof. John Doe. I will be assisting you in learning ${lang}`;
+        },
+        map: new Background("backgrounds/officee.jpeg")
+    }
 };
 
 let music = new Music("../assets/music/bgm2.mp3");
