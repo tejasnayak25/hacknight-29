@@ -109,7 +109,7 @@ export const story = {
         if(!lang.teach.intro) {
             await dialog(teach, teach_base.intro(lang.lang));
 
-            await storage.setItem(`lang-${lang}`, {
+            await storage.setItem(`lang-${lang.lang}`, {
                 lang: lang.lang,
                 teach: {
                     name: lang.teach.name,
@@ -369,12 +369,12 @@ export const story = {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
 
-                next(story_obj.scene2, obj);
+                next(story_obj.scene2, story_obj);
             }
         } else if(char === "Nothing") {
-            next(story_obj.start);
+            next(story_obj.start, story_obj);
         }
         
-        next(story_obj.scene2, obj);
+        next(story_obj.scene2, story_obj);
     }
 }
