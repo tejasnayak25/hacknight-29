@@ -1,5 +1,5 @@
 {
-  "name": "vnsutra",
+  "name": "manjari",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "tailwindcss": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Tejas Nayak",
+  "author": "ARISE",
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
