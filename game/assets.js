@@ -100,7 +100,7 @@ Object.keys(chars).forEach(key => {
     chars[key].char.loadOutfit("Casual");
 });
 
-let obj = new IMG({ src: "../assets/images/logo.png", scale: 0.5 });
+let obj = new IMG({ src: "../assets/images/144.png", scale: 0.5 });
 
 let sounds = {
     wrong, correct
