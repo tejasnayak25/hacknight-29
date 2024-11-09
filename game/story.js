@@ -9,7 +9,7 @@ function shuffleArray(array) {
     return array;
 }
 
-let langList = ["English", "Kannada", "Hindi", "Japanese"];
+let langList = ["English", "Kannada", "Hindi", "Japanese", "Chinese", "Korean", "Spanish", "German", "Italian"].sort();
 
 export const story = {
     start: async function (story_obj) {
