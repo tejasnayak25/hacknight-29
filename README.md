@@ -128,14 +128,9 @@ Our app is built using a modern tech stack that ensures high performance, scalab
    - Our AI analyzes your answers, offering instant corrections.
 
 ## Contributors
-
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-### Contributors
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+<a href="https://github.com/tejasnayak25/hacknight-29/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tejasnayak25/hacknight-29" />
+</a>
 
 
 ## Thank You
