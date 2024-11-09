@@ -165,9 +165,8 @@ export const story = {
             } else {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
-
-                next(story_obj.scene2, story_obj);
             }
+            next(story_obj.scene2, story_obj);
         } else if(char === "Guess the Letter") {
             await dialog(teach, "Now, let's play guess the letter!");
 
@@ -222,9 +221,8 @@ export const story = {
             } else {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
-
-                next(story_obj.scene2, story_obj);
             }
+            next(story_obj.scene2, story_obj);
         } else if(char === "Guess the Word") {
             await dialog(teach, "Now, let's play guess the word!");
 
@@ -279,9 +277,8 @@ export const story = {
             } else {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
-
-                next(story_obj.scene2, story_obj);
             }
+            next(story_obj.scene2, story_obj);
         } else if(char === "Guess the Sentence") {
             await dialog(teach, "Now, let's play guess the sentence!");
 
@@ -336,9 +333,8 @@ export const story = {
             } else {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
-
-                next(story_obj.scene2, story_obj);
             }
+            next(story_obj.scene2, story_obj);
         } else if(char === "Trace Letter") {
             await dialog(teach, "Now, let's play trace the letter!");
 
@@ -368,9 +364,8 @@ export const story = {
             } else {
                 await dialog(teach, "Looks like there was a problem. I need to leave immediately.");
                 await dialog(teach, "I'll be back soon");
-
-                next(story_obj.scene2, story_obj);
             }
+            next(story_obj.scene2, story_obj);
         } else if(char === "Nothing") {
             next(story_obj.start, story_obj);
         } else {
