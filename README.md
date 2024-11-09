@@ -79,29 +79,17 @@ Based on the target language, users are presented with dynamic exercises that co
 
 Our app is built using a modern tech stack that ensures high performance, scalability, and an engaging user experience. Here's a breakdown of the key technologies used:
 
-### 1. **Node.js**
-   - **Purpose**: Node.js is used as the runtime environment for building the backend of the application. It allows us to handle a large number of simultaneous requests with minimal overhead, making the app fast and responsive.
-   - **Key Features**: Non-blocking I/O, asynchronous event-driven architecture, and excellent scalability.
+## Technologies Used
 
-### 2. **Express.js**
-   - **Purpose**: Express.js is a web framework for Node.js that simplifies API creation, routing, and middleware management. It's lightweight, flexible, and helps us quickly build robust RESTful services.
-   - **Key Features**: Easy routing, middleware support, and fast HTTP request handling.
+| **Technology**     | **Purpose**                                                                                                                                           | **Key Features**                                                                                                  |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| **Node.js**        | Node.js is used as the runtime environment for building the backend of the application. It allows us to handle a large number of simultaneous requests with minimal overhead, making the app fast and responsive. | Non-blocking I/O, asynchronous event-driven architecture, and excellent scalability.                             |
+| **Express.js**     | Express.js is a web framework for Node.js that simplifies API creation, routing, and middleware management. It's lightweight, flexible, and helps us quickly build robust RESTful services. | Easy routing, middleware support, and fast HTTP request handling.                                                |
+| **Konva.js**       | Konva.js is a powerful 2D canvas library used to create interactive and animated visual content in the app. It powers the visual novel scenes, character animations, and language learning activities. | Fast rendering, animations, shape manipulation, and support for interactive graphics.                           |
+| **Gemini API**     | The Gemini API is used to integrate advanced language learning and natural language processing capabilities into the app. It provides AI-driven features like real-time feedback, grammar checks, and personalized learning paths. | NLP-powered text analysis, personalized language learning insights, and adaptive feedback based on user input.   |
+| **Tailwind CSS**   | Tailwind CSS is a utility-first CSS framework used for building custom, responsive, and visually appealing UIs with minimal effort. It helps us create a consistent, modern design across all devices. | Utility-first design, responsive layouts, and rapid prototyping with pre-built components.                      |
+| **HTML & JavaScript** | HTML is used to structure the content of the app, while JavaScript powers the dynamic functionality of the app's front-end. JavaScript handles the interactive elements of the visual novel, language exercises, and user feedback loops. | Dynamic interactions, DOM manipulation, and event-driven architecture.                                           |
 
-### 3. **Konva.js**
-   - **Purpose**: Konva.js is a powerful 2D canvas library used to create interactive and animated visual content in the app. It powers the visual novel scenes, character animations, and language learning activities.
-   - **Key Features**: Fast rendering, animations, shape manipulation, and support for interactive graphics.
-
-### 4. **Gemini API**
-   - **Purpose**: The Gemini API is used to integrate advanced language learning and natural language processing capabilities into the app. It provides AI-driven features like real-time feedback, grammar checks, and personalized learning paths.
-   - **Key Features**: NLP-powered text analysis, personalized language learning insights, and adaptive feedback based on user input.
-
-### 5. **Tailwind CSS**
-   - **Purpose**: Tailwind CSS is a utility-first CSS framework used for building custom, responsive, and visually appealing UIs with minimal effort. It helps us create a consistent, modern design across all devices.
-   - **Key Features**: Utility-first design, responsive layouts, and rapid prototyping with pre-built components.
-
-### 6. **HTML & JavaScript**
-   - **Purpose**: HTML is used to structure the content of the app, while JavaScript powers the dynamic functionality of the app's front-end. JavaScript handles the interactive elements of the visual novel, language exercises, and user feedback loops.
-   - **Key Features**: Dynamic interactions, DOM manipulation, and event-driven architecture.
 
 ## Benefits
 
