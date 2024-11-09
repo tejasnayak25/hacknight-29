@@ -1,5 +1,5 @@
-import { futon_room, apartment_ext, mary, god, music, obj, portal, witch_hut, sounds, chars } from "./assets.js";
-import { dialog, next, input, choice, storage, end, wait, trace } from "../vnsutra_modules/game-utils.js";
+import { god, music, witch_hut, sounds, chars } from "./assets.js";
+import { dialog, next, choice, storage, end, trace } from "../vnsutra_modules/game-utils.js";
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {

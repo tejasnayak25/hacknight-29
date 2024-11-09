@@ -1,15 +1,6 @@
 import { Background, Character, IMG, Music, Sfx } from "../vnsutra_modules/asset-utils.js";
 
-let futon_room = new Background("backgrounds/Noraneko_Background_Pack_1/Futon_Room.png");
-let portal = new Background("backgrounds/portal.jpg");
 let witch_hut = new Background("backgrounds/witch_hut.jpeg");
-let apartment_ext = new Background("backgrounds/Noraneko_Background_Pack_1/Apartment_Exterior.png");
-
-let mary = new Character({
-    name: "Mary",
-    folder: "characters/Rin",
-    scale: isMobile ? 1 : 1.5
-});
 
 let god = new Character({
     name: "Mithrandir",
@@ -64,6 +55,17 @@ let chars = {
             return `${getGreeting()}, student. I am Prof. John Doe. I will be assisting you in learning ${lang}`;
         },
         map: new Background("backgrounds/officee.jpeg")
+    },
+    "Amy": {
+        char: new Character({
+            name: "Amy",
+            folder: "characters/Amy",
+            scale: isMobile ? 1 : 1.2
+        }),
+        intro: (lang) => {
+            return `${getGreeting()}, bestie. I am Amy. I will be helping you learn ${lang}`;
+        },
+        map: new Background("backgrounds/cafe.jpeg")
     }
 };
 
@@ -72,7 +74,6 @@ let music = new Music("../assets/music/bgm2.mp3");
 let correct = new Sfx("../assets/music/ma_soundsbyjw_the_brightest_alerts_and_notifications_1.wav");
 let wrong = new Sfx("../assets/music/ma_soundsbyjw_the_brightest_alerts_and_notifications_2.wav");
 
-mary.loadOutfit("Casual");
 god.loadOutfit("Casual");
 
 Object.keys(chars).forEach(key => {
@@ -85,4 +86,4 @@ let sounds = {
     wrong, correct
 };
 
-export { futon_room, apartment_ext, mary, music, obj, god, portal, witch_hut, sounds, chars };
+export { music, obj, god, witch_hut, sounds, chars };
