@@ -218,7 +218,7 @@ async function accounts(config, actionbar, fonts, credit_details) {
                 y: previous + langhead.y() + langhead.height() + gap,
                 text: `${i+1}) ${cur.toUpperCase()} - Accuracy: ${accuracy*100}% | Games Played: ${games_played}`,
                 fontFamily: fonts['other'],
-                fontSize: isMobile ? 25 : (isAndroid ? 23 : 25),
+                fontSize: isMobile ? 22 : (isAndroid ? 23 : 25),
                 fill: config.colors.text,
                 fillAfterStrokeEnabled: true,
                 wrap: "word"
