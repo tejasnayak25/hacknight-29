@@ -36,7 +36,7 @@
         "add-icon": "./assets/svgs/plus-square.svg"
     },
     "ui": {
-        "vnsutra-label": true,
+        "vnsutra-label": false,
         "sidebar": {
             "opacity": 1
         },
