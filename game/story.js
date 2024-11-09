@@ -372,9 +372,9 @@ export const story = {
                 next(story_obj.scene2, story_obj);
             }
         } else if(char === "Nothing") {
-            end();
+            next(story_obj.start, story_obj);
+        } else {
+            next(story_obj.scene2, story_obj);
         }
-        
-        next(story_obj.scene2, story_obj);
     }
 }
