@@ -8669,6 +8669,10 @@ html:has(.drawer-open.drawer-open) {
   height: 100%;
 }
 
+.max-h-80 {
+  max-height: 20rem;
+}
+
 .max-h-full {
   max-height: 100%;
 }
