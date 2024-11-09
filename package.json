@@ -16,6 +16,7 @@
     "daisyui": "^4.12.10",
     "express": "^4.19.2",
     "firebase": "^11.0.1",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "vnsutra": "file:"
   }
 }
