@@ -13,6 +13,18 @@ Manjari is a progressive web app which aims to provide language education to any
 ## Origin
 This project was taken up during the Hacknight hackathon and was running within 20hrs .
 
+## Project Stats
+
+Check out how popular the project is!
+
+[![GitHub stars](https://img.shields.io/github/stars/tejasnayak25/hacknight-29?style=social)](https://github.com/tejasnayak25/hacknight-29)
+[![GitHub forks](https://img.shields.io/github/forks/tejasnayak25/hacknight-29?style=social)](https://github.com/tejasnayak25/hacknight-29)
+
+## Download the App
+
+Click below to download the latest version of the app:
+
+[![Download](https://img.shields.io/badge/Download-latest%20version-blue.svg)](https://manjari-one.vercel.app/install/)
 
 # Language Learning through Visual Novel
 
